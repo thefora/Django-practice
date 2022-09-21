@@ -11,10 +11,14 @@ class CustomAccountAdapter(DefaultAccountAdapter):
         
         # 추가 저장 필드
         nickname = data.get("nickname")
+        name = data.get("name")
         gender = data.get("gender")
         
         if nickname:
             user.nickname = nickname
+        
+        if name:
+            user.name = name
         
         if gender:
             user.gender = gender

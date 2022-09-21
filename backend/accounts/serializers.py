@@ -13,11 +13,13 @@ gender =(
 class CustomRegisterSerializer(RegisterSerializer):
     username = None
     nickname = serializers.CharField(max_length=100)
+    name = serializers.CharField(max_length=100)
     gender = serializers.ChoiceField(choices=gender)
 
     def get_cleaned_data(self):
         data = super().get_cleaned_data()
         data['nickname'] = self.validated_data.get('nickname', '')
+        data['name'] = self.validated_data.get('name', '')
         data['gender'] = self.validated_data.get('gender', "")
 
         return data
