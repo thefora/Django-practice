@@ -50,7 +50,7 @@ class UserSerializer(serializers.ModelSerializer):
                 else:
                     raise ValidationError({"password dismatch error" : "New password is not match."})
             else:
-                raise ValidationError("Permission denied.", code='user dismatch error')
+                raise ValidationError("Permission denied." : "user dismatch error")
             
         else:
             return super().validate(attrs)
